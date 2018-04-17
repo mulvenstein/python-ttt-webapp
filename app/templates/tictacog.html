@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title> TTT Game </title>
+      <style>
+        th, td {
+          border: 10px solid orange;
+          width: 100px;
+        }
+        table{
+          border: 10px solid orange;
+          table-layout: fixed;
+          width: 200px;
+        }
+        input[type=button], input[type=submit]{
+          background-color: rgb(41, 104, 144);
+          border: none;
+          color: white;
+          padding: 16px 32px;
+          text-decoration: none;
+          margin: 4px 2px;
+          cursor: pointer;
+          font-size: 40px;
+        }
+      </style>
+    </head>
+  <body>
+    {% if result == "human u won" or result == "computer has won" %}
+      <h1 align="center"> congrats {{ result }} </h1>
+      <img src="https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/EPzzjHhuxijr01n5f/falling-colorful-confetti-on-white-background-hq-seamless-looping-animation-with-alpha-channel_4oltsc2dl__F0000.png" width="100%" height="20%"> </img>
+      <form action="/ttt"><table><tr><!-- reset button -->
+        <td colspan="5" align="center"><center><input type="submit" name="reset" value="reset"></td>
+      </tr></table></form>
+    {% else %}
+      <h1> Welcome to Tic-Tac-Toe </h1>
+      <form action="/ttt"><table width="500" height="540">
+      {% set items = board.items() %}
+      <tr> <!-- ROW ONE -->
+        {% for i in range(1,4) %}
+          {% if board[i] == '' %}
+            <td align="center"><input type="submit" name="spot" value="{{ i }}" width="100%" height="100%"></td>
+          {% else %}
+            <td align="center"> <font size="15"> {{ board[i] }} </font> </td>
+          {% endif %}
+        {% endfor %}
+      </tr>
+
+      <tr> <!-- ROW TWO -->
+        {% for i in range(4,7) %}
+          {% if board[i] == '' %}
+            <td align="center"><input type="submit" name="spot" value="{{ i }}" width="100%" height="100%"></td>
+          {% else %}
+            <td align="center"> <font size="15"> {{ board[i] }} </font> </td>
+          {% endif %}
+        {% endfor %}
+      </tr>
+
+      <tr> <!-- ROW THREE -->
+        {% for i in range(7,10) %}
+          {% if board[i] == '' %}
+            <td align="center"><input type="submit" name="spot" value="{{ i }}" width="100%" height="100%"></td>
+          {% else %}
+            <td align="center"> <font size="15"> {{ board[i] }} </font> </td>
+          {% endif %}
+        {% endfor %}
+      </tr>
+
+      <tr>
+          <!-- ROW THREE -->
+          <!-- >{% for key, value in board.items() %} {% if 6 < key|int
+          < 10 %} {% if board[key]=='' %} <td align="center">
+            <input type="submit" name="spot" value="{{ key }}">
+            </td>
+            {% else %}
+            <td align="center"> <font size="15"> {{ value }} </font></td>
+            {% endif %} {% endif %} {% endfor %}< -->
+        </tr>
+        <tr><!-- reset button -->
+          <td colspan="5"><center><input type="submit" name="reset" value="reset"></td>
+        </tr>
+      </table></form>
+    {% endif %}
+  </body>
+</html>

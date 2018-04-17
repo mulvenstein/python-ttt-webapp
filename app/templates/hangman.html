@@ -1,0 +1,65 @@
+<head>
+<title>Hangman web app</title>
+</head>
+<body>
+{% if done %}
+   <font color="red">Yay! You did it!</font>
+{% endif %}
+
+<font color="green">You have made {{ incorrects }} incorrect guesses.</font>
+<p>
+<font color="black">Hint: {{ hint }} </font>
+<p>
+<font color="blue">
+Guess by clicking on a letter
+<br>
+<form action="/hangman">
+<table>  <!-- This table will have 5 rows, 5 columns. -->
+<tr>  
+  <td> {% if "a" in guesses %}
+       a
+       {% else %}
+       <input type="submit" name="guess" value="a">
+       {% endif %}
+  <td> <input type="submit" name="guess" value="b">
+  <td> <input type="submit" name="guess" value="c">
+  <td> <input type="submit" name="guess" value="d">
+  <td> <input type="submit" name="guess" value="e">
+</tr> 
+<tr>  
+  <td> <input type="submit" name="guess" value="f">
+  <td> <input type="submit" name="guess" value="g">
+  <td> <input type="submit" name="guess" value="h">
+  <td> <input type="submit" name="guess" value="i">
+  <td> <input type="submit" name="guess" value="j">
+</tr> 
+<tr>  
+  <td> <input type="submit" name="guess" value="k">
+  <td> <input type="submit" name="guess" value="l">
+  <td> <input type="submit" name="guess" value="m">
+  <td> <input type="submit" name="guess" value="n">
+  <td> <input type="submit" name="guess" value="o">
+</tr> 
+<tr>  
+  <td> <input type="submit" name="guess" value="p">
+  <td> <input type="submit" name="guess" value="q">
+  <td> <input type="submit" name="guess" value="r">
+  <td> <input type="submit" name="guess" value="s">
+  <td> <input type="submit" name="guess" value="t">
+</tr> 
+<tr>  
+  <td> <input type="submit" name="guess" value="u">
+  <td> <input type="submit" name="guess" value="v">
+  <td> <input type="submit" name="guess" value="w">
+  <td> <input type="submit" name="guess" value="x">
+  <td> <input type="submit" name="guess" value="y">
+</tr> 
+<tr>
+<td colspan="5"><center><input type="submit" name="guess" value="z">
+</tr>
+<tr>
+<td colspan="5"><center><input type="submit" name="reset" value="reset">
+</tr>
+
+</table>
+</form>

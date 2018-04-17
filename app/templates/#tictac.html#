@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title> TTT Game </title>
+    </head>
+  <body>
+    <h1> Welcome to Tic-Tac-Toe </h1>
+    <table>
+      <tr>
+      {% for key, val in board.items() %}
+        {% if key < 4 %}
+          <th> {{key}}</th> <td>{{val}}</td>
+        {% endif %}
+      {% endfor %}
+      
+      </tr>
+    </table>
+  </body>
+</html>
